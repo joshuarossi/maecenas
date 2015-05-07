@@ -58,5 +58,54 @@ Schema.User = new SimpleSchema({
     }
 });
 
-
 Meteor.users.attachSchema(Schema.User);
+
+Schema.UserPrivate = new SimpleSchema({
+    balance: {
+        type: double,
+        optional: true
+    }
+});
+
+Schema.Transactions = new SimpleSchema({
+    amount: {
+        type: double,
+        optional:false
+    },
+    recipient: {
+        type: String,
+        optional:false
+    },
+    fee: {
+        type: double,
+        optional: false
+    },
+    pot: {
+        type: double,
+        optional: false
+    },
+    tip: {
+        type: double,
+        optional: false
+    }
+
+});
+
+Schema.Pot = new SimpleSchema({
+    balance: {
+        type: double,
+        optional: false
+    }
+});
+
+Schema.Wins = new SimpleSchema({
+    amount: {
+        type: double,
+        optional: false
+    },
+    recipient: {
+        type: string,
+        optional: false
+    }
+})
+
