@@ -107,5 +107,5 @@ Schema.Wins = new SimpleSchema({
         type: string,
         optional: false
     }
-})
+});
 
