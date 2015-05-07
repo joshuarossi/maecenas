@@ -1,0 +1,20 @@
+<template name="layout">
+	<div class="header">
+ 		<div class="sitename"> 		
+ 			<h1>Maecen.us</h1>
+ 		</div>
+ 		<nav>
+ 			<ul>
+ 				<li>
+ 					<a href="{{pathFor 'about'}}">About</a>
+ 				</li>
+ 				<li>
+ 					{{> loginButtons}}
+ 				</li>
+ 			</ul>
+ 		</nav>
+ 	</div>
+<content>
+	{{> yield}}
+</content>
+</template>

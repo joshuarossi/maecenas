@@ -60,6 +60,9 @@ Schema.User = new SimpleSchema({
 
 Meteor.users.attachSchema(Schema.User);
 
+Router.configure({
+    layoutTemplate: 'layout'
+});
 Router.route('/', function () {
     this.render('home');
 });
