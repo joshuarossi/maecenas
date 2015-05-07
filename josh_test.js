@@ -1,6 +1,5 @@
 Schema = {};
 
-
 Schema.UserProfile = new SimpleSchema({
   firstName: {
     type: String,
@@ -64,6 +63,10 @@ Schema.User = new SimpleSchema({
 
 Meteor.users.attachSchema(Schema.User);
 
+Router.configure({
+  layoutTemplate: 'Bootstrap3boilerplate'
+});
+
 Router.route('/', function () {
   this.render('Home');
 });
@@ -73,7 +76,6 @@ Router.route('/about');
 Router.route('/plugin/:username', function () {
   this.render('plugin', {
     data: function () {
-      console.log('i am about to return user');
       return this.params.username;
     }
   });
@@ -84,6 +86,10 @@ if (Meteor.isClient) {
   Accounts.ui.config({
     passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL'
   });
+
+  Meteor.isDevelopment = false;
+  Bootstrap3boilerplate.init();
+  Bootstrap3boilerplate.Navbar.inverse.set(true);
 }
 
 if (Meteor.isServer) {

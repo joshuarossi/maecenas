@@ -25,6 +25,7 @@ email@1.0.6
 facebook@1.2.0
 fastclick@1.0.3
 geojson-utils@1.0.3
+handlebars@1.0.3
 html-tools@1.0.4
 htmljs@1.0.4
 http@1.1.0
@@ -38,6 +39,8 @@ iron:location@1.0.7
 iron:middleware-stack@1.0.7
 iron:router@1.0.7
 iron:url@1.0.7
+jamgold:bootstrap3boilerplate@0.0.4_2
+jamgold:isdevelopment@0.0.1
 jquery@1.11.3_2
 json@1.0.3
 launch-screen@1.0.2
@@ -52,6 +55,7 @@ minimongo@1.0.8
 mobile-status-bar@1.0.3
 momentjs:moment@2.8.4
 mongo@1.1.0
+mrt:bootstrap-3@0.3.8
 npm-bcrypt@0.7.8_2
 oauth@1.1.4
 oauth1@1.1.4
