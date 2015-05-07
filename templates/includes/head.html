@@ -9,7 +9,11 @@
  					<a href="{{pathFor 'about'}}">About</a>
  				</li>
  				<li>
- 					<a href="{{pathFor 'login'}}">Login</a>
+ 					{{#if currentUser}}
+      					<a href="">Logout</a>
+      					{{else}}
+      						<a href="{{pathFor 'login'}}">Login</a>      						
+    				{{/if}} 					
  				</li>
  			</ul>
  		</nav>
