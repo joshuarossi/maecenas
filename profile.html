@@ -1,9 +1,0 @@
-<template name="profile">
-    <h1>Profile</h1>
-
-  {{> quickForm collection="Meteor.users" doc=currentUser fields='profile' id="profile" type="update"}}
-    <p>Code to paste:</p>
-        <code>
-            &lt;iframe src='http://maecen.us/plugin/{{currentUser.username}}'&gt;&lt;/iframe&gt;
-        </code>
-</template>
