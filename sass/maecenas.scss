@@ -24,6 +24,7 @@ body
 	text-align: center;
 	width: 100%;
 	background: white;
+	height:83px;
 
 	.sitename
 	{
@@ -34,7 +35,8 @@ body
 
 	nav
 	{
-
+		padding-top:17px;
+		display: inline-block;
 		float: right;
 		padding-right: $header-pad;
 		ul
