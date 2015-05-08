@@ -6,8 +6,9 @@
         height: 180px;
     }
     #carousel {
-    	width:200px;
-    	height:180px;
+        width: 200px;
+        height: 180px;
+        background-color: lightgray;
     }
     html, body{
         height: 100%
