@@ -12,6 +12,7 @@ Router.route('/', function () {
 Router.route('/about');
 
 Router.route('/plugin/:username', function () {
+    this.layout('pluginLayout');
     this.render('plugin', {
         data: function () {
             return this.params.username;
