@@ -1,5 +1,8 @@
 <template name="pluginsecond">
-	<img>
+<script type="text/javascript">
+	jquery('#qrcode').qrcode("bitcoin:{{bitcoin}}");
+</script>
+	<div id="qrcode"></div>
 	<p>test</p>
 	<a href="bitcoin:{{bitcoin}}">{{bitcoin}}</a>
 </template>
