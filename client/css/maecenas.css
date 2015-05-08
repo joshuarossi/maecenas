@@ -1,0 +1,11 @@
+
+
+    #carousel .item{
+        display: block;
+        width: 200px;
+        height: 180px;
+    }
+    #carousel {
+    	width:200px;
+    	height:180px;
+    }
