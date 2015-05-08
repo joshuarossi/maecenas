@@ -25,6 +25,8 @@ Template.pluginLayout.rendered = function () {
         infinite: true,
         speed: 500,
         fade: true,
-        cssEase: 'linear'
+        cssEase: 'linear',
+        nextArrow: '<button type="button" class="slick-next">&gt;</button>',
+        prevArrow: '<button type="button" class="slick-next">&lt;</button>'
     });
 };

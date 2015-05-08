@@ -1,5 +1,4 @@
 <template name="pluginsecond">
-	<div id="qrcode"></div>
-	<p>test</p>
-	<a href="bitcoin:{{bitcoin}}">{{bitcoin}}</a>
+	<img src="https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=bitcoin:{{bitcoinaddress}}">
+	<a href="bitcoin:{{bitcoinaddress}}">{{bitcoinaddress}}testing</a>
 </template>
