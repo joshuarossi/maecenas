@@ -15,19 +15,25 @@
 
             $("#carousel").owlCarousel({
 
-                navigation: true, // Show next and prev buttons
+                navigation: true,
                 slideSpeed: 300,
                 paginationSpeed: 400,
                 singleItem: true,
                 items: 1
-                // "singleItem:true" is a shortcut for:
-                // items : 1,
-                // itemsDesktop : false,
-                // itemsDesktopSmall : false,
-                // itemsTablet: false,
-                // itemsMobile : false
 
             });
         });
+    </script>
+    <script>
+        $('#qrcode').qrcode( { 
+        text: "bitcoin{{bitcoin}}", 
+        render: 'canvas',
+        width: 128,
+        height: 128, 
+        ecLevel: 'H',
+        fill: "#000",
+        background: "#fff",
+        radius: 0.2,
+    }); 
     </script>
 </template>
