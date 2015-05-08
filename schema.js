@@ -1,6 +1,3 @@
-/**
- * Created by joshuarossi on 5/7/15.
- */
 Schema = {};
 
 Schema.UserProfile = new SimpleSchema({
@@ -55,9 +52,6 @@ Schema.User = new SimpleSchema({
         optional: true,
         blackbox: true
     },
-    // Option 2: [String] type
-    // If you are sure you will never need to use role groups, then
-    // you can specify [String] as the type
     roles: {
         type: [String],
         optional: true
@@ -65,3 +59,53 @@ Schema.User = new SimpleSchema({
 });
 
 Meteor.users.attachSchema(Schema.User);
+
+Schema.UserPrivate = new SimpleSchema({
+    balance: {
+        type: double,
+        optional: true
+    }
+});
+
+Schema.Transactions = new SimpleSchema({
+    amount: {
+        type: double,
+        optional:false
+    },
+    recipient: {
+        type: String,
+        optional:false
+    },
+    fee: {
+        type: double,
+        optional: false
+    },
+    pot: {
+        type: double,
+        optional: false
+    },
+    tip: {
+        type: double,
+        optional: false
+    }
+
+});
+
+Schema.Pot = new SimpleSchema({
+    balance: {
+        type: double,
+        optional: false
+    }
+});
+
+Schema.Wins = new SimpleSchema({
+    amount: {
+        type: double,
+        optional: false
+    },
+    recipient: {
+        type: string,
+        optional: false
+    }
+});
+
