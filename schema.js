@@ -1,3 +1,6 @@
+/**
+ * Created by joshuarossi on 5/7/15.
+ */
 Schema = {};
 
 Schema.UserProfile = new SimpleSchema({
@@ -62,48 +65,3 @@ Schema.User = new SimpleSchema({
 });
 
 Meteor.users.attachSchema(Schema.User);
-
-Router.configure({
-    layoutTemplate: 'Bootstrap3boilerplate'
-});
-
-Router.route('/', function () {
-    this.render('Home');
-});
-
-Router.route('/about');
-
-Router.route('/plugin/:username', function () {
-    this.render('plugin', {
-        data: function () {
-            return this.params.username;
-        }
-    });
-});
-
-if (Meteor.isClient) {
-    console.log('Starting up from the console...');
-    Accounts.ui.config({
-        passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL'
-    });
-
-    Meteor.isDevelopment = false;
-    Bootstrap3boilerplate.ProjectName.set('Maecenas');
-    Bootstrap3boilerplate.fluid.set(true);
-    Bootstrap3boilerplate.Navbar.type.set('navbar-fixed-top');
-    Bootstrap3boilerplate.Navbar.inverse.set(true);
-    Bootstrap3boilerplate.Footer.show.set(false);
-    Bootstrap3boilerplate.Navbar.left = function () {
-        return [{href:'/',text:'Home'}, {href:'/about',text:'About'}]
-    };
-    Bootstrap3boilerplate.Navbar.right = function () {
-        return [{showLoginButtons:true, align: 'right'}, {divider:true}]
-    };
-    Bootstrap3boilerplate.init();
-}
-
-if (Meteor.isServer) {
-    Meteor.startup(function () {
-        console.log('Started up the server...')
-    });
-}
