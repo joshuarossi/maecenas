@@ -1,4 +1,28 @@
 <template name="plugin">
+<script>
+
+
+    $(document).ready(function() {
+     
+      $("#carousel").owlCarousel({
+     
+          navigation : true, // Show next and prev buttons
+          slideSpeed : 300,
+          paginationSpeed : 400,
+          singleItem:true,
+     	  items:1
+          // "singleItem:true" is a shortcut for:
+          // items : 1, 
+          // itemsDesktop : false,
+          // itemsDesktopSmall : false,
+          // itemsTablet: false,
+          // itemsMobile : false
+     
+      });
+     
+    });
+
+</script>
     <p>Hi {{this}}</p>
     <div id="carousel" class="owl-carousel owl-theme">
 	    <div class="item">
