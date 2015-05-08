@@ -12,3 +12,13 @@
     html, body{
         height: 100%
     }
+    .pfirst {
+        height:180px;
+        text-align:center;
+    }
+    img {
+        width:130px!important;
+        height:130px!important;
+        margin:0 auto;
+        padding-bottom:8px;
+    }

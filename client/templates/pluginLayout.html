@@ -10,6 +10,7 @@
           {{>yield 'third'}}
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
 
@@ -23,17 +24,5 @@
 
             });
         });
-    </script>
-    <script>
-        $('#qrcode').qrcode( { 
-        text: "bitcoin{{bitcoin}}", 
-        render: 'canvas',
-        width: 128,
-        height: 128, 
-        ecLevel: 'H',
-        fill: "#000",
-        background: "#fff",
-        radius: 0.2,
-    }); 
     </script>
 </template>
