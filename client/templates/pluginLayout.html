@@ -1,5 +1,4 @@
 <template name="pluginLayout">
-    <div id="carousel" class="owl-carousel owl-theme">
         <div class="item">
           {{>yield 'first'}}
         </div>
@@ -9,20 +8,5 @@
         <div class="item">
           {{>yield 'third'}}
         </div>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
 
-            $("#carousel").owlCarousel({
-
-                navigation: true,
-                slideSpeed: 300,
-                paginationSpeed: 400,
-                singleItem: true,
-                items: 1
-
-            });
-        });
-    </script>
 </template>
