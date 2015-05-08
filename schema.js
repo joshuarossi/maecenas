@@ -62,14 +62,14 @@ Meteor.users.attachSchema(Schema.User);
 
 Schema.UserPrivate = new SimpleSchema({
     balance: {
-        type: double,
+        type: Number,
         optional: true
     }
 });
 
 Schema.Transactions = new SimpleSchema({
     amount: {
-        type: double,
+        type: Number,
         optional:false
     },
     recipient: {
@@ -77,15 +77,15 @@ Schema.Transactions = new SimpleSchema({
         optional:false
     },
     fee: {
-        type: double,
+        type: Number,
         optional: false
     },
     pot: {
-        type: double,
+        type: Number,
         optional: false
     },
     tip: {
-        type: double,
+        type: Number,
         optional: false
     }
 
@@ -93,14 +93,14 @@ Schema.Transactions = new SimpleSchema({
 
 Schema.Pot = new SimpleSchema({
     balance: {
-        type: double,
+        type: Number,
         optional: false
     }
 });
 
 Schema.Wins = new SimpleSchema({
     amount: {
-        type: double,
+        type: Number,
         optional: false
     },
     recipient: {
