@@ -18,3 +18,13 @@ Bootstrap3boilerplate.Navbar.right = function () {
     return [{showLoginButtons:true, align: 'right'}]
 };
 Bootstrap3boilerplate.init();
+
+Template.pluginLayout.rendered = function () {
+    $('#carousel').slick({
+        arrows: true,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        cssEase: 'linear'
+    });
+};

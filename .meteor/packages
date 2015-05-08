@@ -16,6 +16,7 @@ alanning:roles
 jamgold:bootstrap3boilerplate
 mrt:bootstrap-3
 meteorhacks:fast-render
-richsilv:owl-carousel
 jquery
 pestouille:qrcodejs
+shcherbin:slickjs
+fourseven:scss

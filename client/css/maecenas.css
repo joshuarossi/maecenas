@@ -3,11 +3,11 @@
     #carousel .item{
         display: block;
         width: 200px;
-        height: 180px;
+        height: 200px;
     }
     #carousel {
     	width:200px;
-    	height:180px;
+    	height:200px;
     }
     html, body{
         height: 100%
@@ -21,4 +21,17 @@
         height:130px!important;
         margin:0 auto;
         padding-bottom:8px;
+    }
+
+    .slick-next {
+        margin: 0 auto;
+    }
+
+    .slick-prev {
+        margin: 0 auto;
+        margin-left:20px;
+    }
+    button:before {
+        text-align: center;
+
     }
