@@ -104,7 +104,7 @@ Schema.Wins = new SimpleSchema({
         optional: false
     },
     recipient: {
-        type: string,
+        type: String,
         optional: false
     }
 });
