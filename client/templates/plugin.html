@@ -1,31 +1,4 @@
 <template name="plugin">
-<script>
 
 
-    $(document).ready(function() {
-     
-      $("#carousel").owlCarousel({
-     
-          navigation : true,
-          slideSpeed : 300,
-          paginationSpeed : 400,
-          singleItem:true,
-     	  items:1
-     
-      });
-     
-    });
-
-</script>
-    <div id="carousel" class="owl-carousel owl-theme">
-	    <div class="item">
-	    	{{>pluginfirst}}
-	    </div>
-	    <div class="item">
-	    	{{>pluginsecond}}
-	    </div>
-	    <div class="item">
-	    	{{>pluginthird}}
-	    </div>
-    </div>
 </template>
