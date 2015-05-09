@@ -10,7 +10,7 @@ if (Meteor.isServer) {
       
       });
 
-      return gists.result;
+      //return something
     }
   });
 }
