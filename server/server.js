@@ -6,7 +6,7 @@ function didWin(amount)
 {
 	var chances = amount * 100000000;
 	console.log(chances);
-	var pot = Pot.find().count();
+	var pot = Pot.findOne().balance;
 	console.log(pot);
 };
 
