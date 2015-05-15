@@ -10,14 +10,9 @@ Router.route('/', function () {
 });
 
 Router.route('/test', function () {
-    //// NodeJS request object
-    //var request = this.request;
-    //
-    //// NodeJS  response object
-    //var response = this.response;
-
+    console.log('test')
     this.response.end(JSON.stringify(this.params.query, null, 4));
-    Meteor.call('test', this.params.query )
+    Meteor.call('test', this.params.query );
 }, {where: 'server'});
 
 Router.route('/about');
