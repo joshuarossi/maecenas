@@ -9,6 +9,17 @@ Router.route('/', function () {
     this.render('Home');
 });
 
+Router.route('/test', function () {
+    //// NodeJS request object
+    //var request = this.request;
+    //
+    //// NodeJS  response object
+    //var response = this.response;
+
+    this.response.end(JSON.stringify(this.params.query, null, 4));
+    Meteor.call('test', this.params.query )
+}, {where: 'server'});
+
 Router.route('/about');
 
 Router.route('/plugin/:username', function () {
