@@ -1,4 +1,6 @@
 Pot = new Mongo.Collection("pot");
+Wins = new Mongo.Collection("wins");
+Transactions = new Mongo.Collection("transactions");
 
 function didWin(amount)
 {
@@ -13,4 +15,4 @@ Meteor.startup(function(){
 		balance: 32
 	});
 	didWin(0.10003);
-})
+});

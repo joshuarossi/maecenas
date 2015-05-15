@@ -67,45 +67,4 @@ Schema.UserPrivate = new SimpleSchema({
     }
 });
 
-Schema.Transactions = new SimpleSchema({
-    amount: {
-        type: Number,
-        optional:false
-    },
-    recipient: {
-        type: String,
-        optional:false
-    },
-    fee: {
-        type: Number,
-        optional: false
-    },
-    pot: {
-        type: Number,
-        optional: false
-    },
-    tip: {
-        type: Number,
-        optional: false
-    }
-
-});
-
-Schema.Pot = new SimpleSchema({
-    balance: {
-        type: Number,
-        optional: false
-    }
-});
-
-Schema.Wins = new SimpleSchema({
-    amount: {
-        type: Number,
-        optional: false
-    },
-    recipient: {
-        type: String,
-        optional: false
-    }
-});
 
