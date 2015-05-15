@@ -67,6 +67,13 @@ Schema.UserPrivate = new SimpleSchema({
     }
 });
 
+Schema.Addresses = new SimpleSchema({
+    address: {
+        type: String,
+        optional: false
+    }
+});
+
 Schema.Transactions = new SimpleSchema({
     amount: {
         type: Number,
