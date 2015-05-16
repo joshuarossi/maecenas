@@ -10,12 +10,26 @@ Router.route('/', function () {
 });
 
 Router.route('/test', function () {
-    console.log('test')
+    console.log('test');
     this.response.end(JSON.stringify(this.params.query, null, 4));
     Meteor.call('test', this.params.query );
 }, {where: 'server'});
 
 Router.route('/about');
+
+Router.route('/transactions', { where: 'server' })
+    .get(function () {
+        console.log('Someone called GET on /transactions...\n');
+        this.response.end('Someone called GET on /transactions\n')
+    })
+    .post(function () {
+        console.log(this.request.query);
+        Transactions.insert(this.request.params);
+        Transactions.insert(this.request.query);
+        console.log('someone called POST on /transactions\n');
+        return "Received your query"
+    });
+
 
 Router.route('/plugin/:username', function () {
     this.layout('pluginLayout');

@@ -66,5 +66,3 @@ Schema.UserPrivate = new SimpleSchema({
         optional: true
     }
 });
-
-
