@@ -20,3 +20,14 @@ Bootstrap3boilerplate.Navbar.right = function () {
     return [{showLoginButtons: true, align: 'right'}]
 };
 Bootstrap3boilerplate.init();
+
+Template.pluginfirst.helpers({
+    'btc_jackpot': function () {
+        console.log(Jackpot.findOne().value);
+        return Jackpot.findOne().value
+    },
+    'usd_jackpot': function () {
+        console.log(Jackpot.findOne().value * 240.0);
+        return Jackpot.findOne().value * 240.00
+    }
+});

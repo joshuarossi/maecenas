@@ -23,10 +23,9 @@ Router.route('/transactions', { where: 'server' })
         this.response.end('Someone called GET on /transactions\n')
     })
     .post(function () {
-        console.log(this.request.query);
-        Transactions.insert(this.request.params);
-        Transactions.insert(this.request.query);
         console.log('someone called POST on /transactions\n');
+        console.log(this.request.body);
+        Transactions.insert(this.request.body);
         return "Received your query"
     });
 
