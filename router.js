@@ -9,12 +9,6 @@ Router.route('/', function () {
     this.render('Home');
 });
 
-Router.route('/test', function () {
-    console.log('test');
-    this.response.end(JSON.stringify(this.params.query, null, 4));
-    Meteor.call('test', this.params.query );
-}, {where: 'server'});
-
 Router.route('/about');
 
 Router.route('/transactions', { where: 'server' })
@@ -29,10 +23,13 @@ Router.route('/transactions', { where: 'server' })
         return "Received your query"
     });
 
+Router.route('/plugin/test', function () {
+    this.layout('pluginLayout');
+    this.render('carousel', {to: 'plugin'});
+    this.render('donate_form', {to: 'donation_form'})
+});
 
 Router.route('/plugin/:username', function () {
     this.layout('pluginLayout');
-    this.render('pluginfirst', {to: 'first'});
-    this.render('pluginsecond', {to: 'second'});
-    this.render('pluginthird', {to: 'third'});
+    this.render('carousel', {to: 'plugin'});
 });

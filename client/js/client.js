@@ -21,42 +21,37 @@ Bootstrap3boilerplate.Navbar.right = function () {
 };
 Bootstrap3boilerplate.init();
 
-Template.pluginfirst.helpers({
-    'btc_jackpot': function () {
-        console.log(Jackpot.findOne().value);
-        return Jackpot.findOne().value
-    },
-    'usd_jackpot': function () {
-        console.log(Jackpot.findOne().value * 240.0);
-        return Jackpot.findOne().value * 240.00
+Template.carousel.rendered = function () {
+    $('#carousel').slick({
+        dots: false,
+        arrows: true,
+        draggable: true,
+        prevArrow: '<i class="fa fa-chevron-left"></i>',
+        nextArrow: '<i class="fa fa-chevron-right"></i>'
+    });
+};
+
+Template.carousel.helpers({
+    'selected': function () {
+        return Session.get('selected')
     }
 });
 
-
-if (Meteor.isClient) {
-    Session.setDefault({'button_hidden': true});
-    Template.pluginLayout.rendered = function () {
-        $('#carousel').slick({
-            dots: false,
-            arrows: true,
-            draggable: true,
-	    prevArrow: '<i class="fa fa-chevron-left"></i>',
-	    nextArrow: '<i class="fa fa-chevron-right"></i>'
-        });
-    };
-    Template.pageOne.helpers({
-        'buttonHidden': function () {
-            return Session.get('button_hidden')}
-    });
-
-    Template.pluginLayout.events({
-        'mouseenter #carousel': function () {
-            Session.set({'button_hidden': false});
-            console.log(Session.get('button_hidden'))
-        },
-        'mouseleave #carousel': function () {
-            Session.set({'button_hidden': true});
-            console.log(Session.get('button_hidden'))
+//gives us access to the jackpot value
+Template.pageOne.helpers({
+    'jackpot': function () {
+        if (jackpot_subscription.ready()){
+            return +Jackpot.findOne({_id: 'a'}).value.toFixed(2);
         }
-    })
-}
+    }
+});
+
+//Simple form to change the jackpot amount (increment by 20%)
+Template.donate_form.events({
+    'submit form': function(){
+        event.preventDefault();
+        var donation = event.target.donation.value * 0.20;
+        Jackpot.update({_id: 'a'}, {$inc: {value: donation}});
+        event.target.donation.value = "";
+    }
+});
