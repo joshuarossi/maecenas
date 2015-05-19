@@ -1,15 +1,47 @@
+#carousel {
 
+    width:    200px;
+    position: relative;
+    top:      100px;
+    left:     100px;
+}
 
-    #carousel .item{
-        display: block;
-        width: 200px;
-        height: 180px;
-    }
-    #carousel {
-        width: 200px;
-        height: 180px;
-        background-color: lightgray;
-    }
-    html, body{
-        height: 100%
-    }
+#carousel div {
+    width:    200px;
+    height: 200px;
+    background-color: lightblue;
+    color: white;
+    text-align: center;
+
+}
+
+#carousel span {
+    vertical-align: middle;
+}
+
+.fa-chevron-right {
+    float: right;
+    position: relative;
+    bottom: 195px;
+    cursor: pointer;
+    cursor: hand;
+    color: #ADD8E6;
+    padding-top: 90px; 
+    padding-bottom: 90px;
+}
+.fa-chevron-left { 
+    float: left;
+    position: relative;
+    bottom: 195px;
+    cursor: pointer;
+    cursor: hand;
+    color: #ADD8E6;
+    padding-top: 90px; 
+    padding-bottom: 90px;
+}
+#carousel:hover > .fa-chevron-left {
+    color: #fff;
+}
+#carousel:hover > .fa-chevron-right {
+    color: #fff;
+}

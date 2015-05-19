@@ -32,11 +32,6 @@ Router.route('/transactions', { where: 'server' })
 
 Router.route('/plugin/:username', function () {
     this.layout('pluginLayout');
-    this.render('plugin', {
-        data: function () {
-            return this.params.username;
-        }
-    });
     this.render('pluginfirst', {to: 'first'});
     this.render('pluginsecond', {to: 'second'});
     this.render('pluginthird', {to: 'third'});

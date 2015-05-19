@@ -1,26 +1,7 @@
 <template name="pluginLayout">
-    <div id="carousel" class="owl-carousel owl-theme">
-        <div class="item">
-          {{>yield 'first'}}
-        </div>
-        <div class="item">
-          {{>yield 'second'}}
-        </div>
-        <div class="item">
-          {{>yield 'third'}}
-        </div>
+    <div id="carousel">
+        <div>{{>yield 'first'}}</div>
+        <div>{{>yield 'second'}}</div>
+        <div>{{>yield 'third'}}</div>
     </div>
-    <script>
-        $(document).ready(function () {
-
-            $("#carousel").owlCarousel({
-                pagination: false,
-                paginationNumbers: true,
-                navigation: true, // We will create our own customized navigation
-                slideSpeed: 300,
-                singleItem: true,
-                items: 1
-            });
-        });
-    </script>
 </template>
