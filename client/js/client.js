@@ -26,6 +26,7 @@ Template.carousel.rendered = function () {
         dots: false,
         arrows: true,
         draggable: true,
+        useCSS: false,
         prevArrow: '<i class="fa fa-chevron-left"></i>',
         nextArrow: '<i class="fa fa-chevron-right"></i>'
     });
