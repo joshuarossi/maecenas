@@ -1,11 +1,13 @@
 <template name="profile">
     <h1>Profile</h1>
 
-  {{> quickForm collection="Meteor.users" doc=currentUser fields='profile' id="profile" type="update"}}
+    {{> quickForm collection="Meteor.users" doc=currentUser fields='profile' id="profile" type="update"}}
     <p>Code to paste:</p>
-        <code>
-            &lt;iframe src='http://maecen.us/plugin/{{currentUser.username}}'&gt;&lt;/iframe&gt;
-        </code>
-        <p>Preview of the plugin</p>
-        <iframe frameborder="0" scrolling='no' height=200 width=200 src='http://www.maecen.us/plugin/{{currentUser.username}}'></iframe>
+    <code>
+        &lt;iframe src='http://maecen.us/plugin/{{currentUser.username}}'&gt;&lt;/iframe&gt;
+    </code>
+
+    <p>Preview of the plugin</p>
+    <iframe frameborder="0" seamless scrolling='no' height=200 width=200
+            src='http://www.maecen.us/plugin/{{currentUser.username}}'></iframe>
 </template>
