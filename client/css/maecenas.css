@@ -56,3 +56,11 @@
     left: 0 !important;
     top: 0 !important;
 }
+
+#bitcoin_address {
+    word-wrap: break-word;
+    text-align: left;
+    font-weight: 100;
+    font-size: x-small;
+    vertical-align: bottom;
+}

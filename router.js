@@ -31,5 +31,10 @@ Router.route('/plugin/test', function () {
 
 Router.route('/plugin/:username', function () {
     this.layout('pluginLayout');
-    this.render('carousel', {to: 'plugin'});
+    this.render('carousel', {
+        to: 'plugin',
+        data: function () {
+            return Meteor.users.findOne({username: this.params.username})
+        }
+    });
 });

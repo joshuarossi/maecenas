@@ -1,14 +1,14 @@
 <template name="pageOne">
-    <h1>Page 1</h1>
   {{#if Template.subscriptionsReady}}
-      <p>Jackpot ${{jackpot}}</p>
+      <p><a href="bitcoin:{{this.profile.bitcoin_address}}?amount=.001&message=donation">Donate here<br>for a chance to win<br> ${{jackpot}}</a></p>
   {{/if}}
 </template>
 
 <template name="pageTwo">
-    <h1>Page 2</h1>
+    <div id="qrcode"></div>
 </template>
 
 <template name="pageThree">
     <h1>Page 3</h1>
+    <p>Terms and Conditions</p>
 </template>
