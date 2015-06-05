@@ -21,6 +21,9 @@ Meteor.startup(function () {
         Meteor.publish('jackpot_publish', function () {
             return Jackpot.find({_id: 'a'})
         });
+        Meteor.publish("allUserData", function () {
+            return Meteor.users.find({}, {fields: {'profile': 1, 'username': 1}});
+        });
     }
     if (Meteor.isClient) {
         jackpot_subscription = Meteor.subscribe('jackpot_publish');

@@ -29,12 +29,22 @@ Router.route('/plugin/test', function () {
     this.render('donate_form', {to: 'donation_form'})
 });
 
-Router.route('/plugin/:username', function () {
-    this.layout('pluginLayout');
-    this.render('carousel', {
-        to: 'plugin',
-        data: function () {
-            return Meteor.users.findOne({username: this.params.username})
+Router.route('/plugin/:username', {
+    subscriptions: function() {
+        return Meteor.subscribe('allUserData');
+    },
+    layoutTemplate: 'pluginLayout',
+    action: function () {
+    if (this.ready()) {
+        this.render('carousel', {
+            to: 'plugin',
+            data: function () {
+                return Meteor.users.findOne({username: this.params.username});
         }
     });
+    }
+    else {
+        this.render('Loading');
+    }
+  }
 });
