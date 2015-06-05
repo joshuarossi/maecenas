@@ -9,7 +9,6 @@ function transitionEffect () {
 }
 
 Meteor.startup(function () {
-
     Jackpot = new Mongo.Collection("jackpot");
     var query = Jackpot.find({_id: 'a'});
     var toggle = new ReactiveVar(0);
