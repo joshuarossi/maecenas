@@ -23,6 +23,7 @@ Meteor.startup(function () {
         Meteor.publish("allUserData", function () {
             return Meteor.users.find({}, {fields: {'profile': 1, 'username': 1}});
         });
+        getPubnub(creds);
     }
     if (Meteor.isClient) {
         jackpot_subscription = Meteor.subscribe('jackpot_publish');

@@ -58,8 +58,9 @@ Template.donate_form.events({
 });
 
 Template.pageTwo.onRendered(function(){
+    console.log(this.data);
     $('#qrcode').qrcode( {
-        text: "bitcoin:" + this.data.profile.bitcoin_address + "?amount=.001&message=donation",
+        text: "bitcoin:" + this.data.profile.internal_address + "?amount=.001&message=donation",
         render: 'canvas',
         ecLevel: 'H',
         radius: 0.2

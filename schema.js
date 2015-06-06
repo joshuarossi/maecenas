@@ -16,7 +16,16 @@ Schema.UserProfile = new SimpleSchema({
         regEx: SimpleSchema.RegEx.Url,
         optional: true
     },
-    bitcoin_address: {
+    internal_address: {
+        type: String,
+        optional: true,
+        autoform: {
+            afFieldInput: {
+                readonly: true
+            }
+        }
+    },
+    external_address: {
         type: String,
         optional: true
     }
