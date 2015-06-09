@@ -49,7 +49,7 @@ sendToCoinkite = function (endpoint, data, command) {
 }
 
 getPubnub = function (creds) {
-	pubnub = Npm.require("pubnub")({
+	pubnub = Meteor.npmRequire("pubnub")({
 		ssl           : true,
 		auth_key   : creds.auth_key,
 		subscribe_key : creds.subscribe_key
