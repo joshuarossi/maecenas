@@ -36,12 +36,17 @@ Template.carousel.helpers({
         return Session.get('selected')
     }
 });
+Template.transactions.helpers({
+    transactions: function () {
+        return bitcoinEvents.find({'event_code': 'credit_0'});
+    }
+});
 
 //gives us access to the jackpot value
 Template.pageOne.helpers({
     'jackpot': function () {
         if (jackpot_subscription.ready()) {
-            return +Jackpot.findOne({_id: 'a'}).value.toFixed(2);
+            return +Jackpot.findOne({_id: 'a'}).value.toFixed(8);
         }
     }
 })
@@ -58,7 +63,6 @@ Template.donate_form.events({
 });
 
 Template.pageTwo.onRendered(function(){
-    console.log(this.data);
     $('#qrcode').qrcode( {
         text: "bitcoin:" + this.data.profile.internal_address + "?amount=.001&message=donation",
         render: 'canvas',

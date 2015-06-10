@@ -64,14 +64,12 @@ Schema.User = new SimpleSchema({
     roles: {
         type: [String],
         optional: true
+    },
+    balance: {
+        type: Number,
+        decimal: true,
+        optional: true
     }
 });
 
 Meteor.users.attachSchema(Schema.User);
-
-Schema.UserPrivate = new SimpleSchema({
-    balance: {
-        type: Number,
-        optional: true
-    }
-});

@@ -1,3 +1,19 @@
 <template name="transactions">
     <h1>Transactions</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Event</th> 
+            <th>Summary</th>
+            <th>Details</th>
+        </tr>
+    {{#each transactions}}
+        <tr>
+            <td>{{this._id}}</td>
+            <td>{{this.event_code}}</td>
+            <td>{{this.summary}}</td>
+            <td>{{this.details.event}}</td>
+        </tr>
+    {{/each}}
+    </table>
 </template>

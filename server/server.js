@@ -9,5 +9,6 @@ Accounts.onCreateUser(function(options, user) {
 	user.profile = options.profile;
 	user.profile.internal_address = getNewBitcoinAddress();
 	console.log('new bitcoin address' + user.profile.internal_address);
+	user.balance = 0.0;
   	return user;
 });

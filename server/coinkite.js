@@ -1,5 +1,3 @@
-bitcoinEvents = new Mongo.Collection('bitcoin_events');
-
 creds =  {
 auth_key: 'Pg1XyruLTIfueQFRK5JSUCxwZ6xxTBw2',
 channel: 'events.703ae0812ab73c7366c57531b18f826a',
@@ -9,7 +7,22 @@ subscribe_key: 'sub-c-5388b9e4-f307-11e3-a672-02ee2ddab7fe'
 API_KEY = 'K5045dbff-22b1fb6b-03250f5c4a0d860e'
 API_SECRET = 'S9e38116a-cb269539-66123cacd4ff161d'
 
+updateBalances = function (details) {
+	if (details.type == 'Credit') {
+		address = details.credit_txo.coin.address;
+		amount = details.credit_txo.amount;
+		account = Meteor.users.findOne({'profile.internal_address': address});
+		Meteor.users.update({'profile.internal_address': address}, {$inc: {balance: (amount*0.8)}});
+		Jackpot.update({_id: 'a'}, {$inc: {value: (amount*0.2)}});
+	}
+};
+
 messageCallback = Meteor.bindEnvironment(function (message) {
+	if (message.event_code == "credit_0"){
+		response = getDetail(message.activity);
+		message.details = response.data.detail;
+		updateBalances(message.details.event);
+	}
 	bitcoinEvents.insert(message);
 });
 
@@ -19,14 +32,14 @@ sign = function (endpoint, force_ts) {
     crypto = Npm.require('crypto');
     hm = crypto.createHmac('sha256', API_SECRET).update(data).digest('hex')
     return [hm, ts]
-}
+};
 
 getNewAddress = function () {
 	endpoint = '/v1/new/receive'
 	a = sendToCoinkite(endpoint, {'account': 0}, 'put');
 	console.log(a.data.result.address);
 	return a.data.result.address;
-}
+};
 
 sendToCoinkite = function (endpoint, data, command) {
 	url = 'https://api.coinkite.com';
@@ -46,7 +59,7 @@ sendToCoinkite = function (endpoint, data, command) {
 		a = HTTP.get(url+endpoint, options)
 		}
 	return a;
-}
+};
 
 getPubnub = function (creds) {
 	pubnub = Meteor.npmRequire("pubnub")({
@@ -59,7 +72,6 @@ getPubnub = function (creds) {
     channel : creds.channel,
     message : function( message, env, channel ){
        // RECEIVED A MESSAGE.
-       console.log(message);
 	   messageCallback(message);
     },
     connect: function(){console.log("Connected")},
@@ -82,4 +94,10 @@ getBalance = function () {
 	endpoint = '/v1/account/0';
 	a = sendToCoinkite(endpoint, {});
 	return a.data.account;
-}
+};
+
+getDetail = function (refnum) {
+	endpoint = '/v1/detail/' + refnum;
+	a = sendToCoinkite(endpoint, {});
+	return a;
+};

@@ -5,23 +5,33 @@ Router.configure({
     layoutTemplate: 'Bootstrap3boilerplate'
 });
 
-Router.route('/', function () {
+Router.route('/', {
+    subscriptions: function() {
+        return Meteor.subscribe('allUserData');
+    },
+    action: function () {
     this.render('Home');
+    }
 });
 
 Router.route('/about');
 
-Router.route('/transactions', { where: 'server' })
-    .get(function () {
-        console.log('Someone called GET on /transactions...\n');
-        this.response.end('Someone called GET on /transactions\n')
-    })
-    .post(function () {
-        console.log('someone called POST on /transactions\n');
-        console.log(this.request.body);
-        Transactions.insert(this.request.body);
-        return "Received your query"
-    });
+//Router.route('/transactions', { where: 'server' })
+//    .post(function () {
+//        console.log('someone called POST on /transactions\n');
+//        console.log(this.request.body);
+//        Transactions.insert(this.request.body);
+//        return "Received your query";
+//    });
+
+Router.route('/transactions', {
+        subscriptions: function() {
+            return Meteor.subscribe('allTransactions');
+        },
+        data: function () {
+            return bitcoinEvents.find();
+        }
+});
 
 Router.route('/plugin/test', function () {
     this.layout('pluginLayout');

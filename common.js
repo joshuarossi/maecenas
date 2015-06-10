@@ -9,10 +9,12 @@ function transitionEffect () {
 }
 
 Meteor.startup(function () {
+    bitcoinEvents = new Mongo.Collection('bitcoin_events');
     Jackpot = new Mongo.Collection("jackpot");
     var query = Jackpot.find({_id: 'a'});
     var toggle = new ReactiveVar(0);
     Transactions = new Mongo.Collection("transactions");
+//    Server
     if (Meteor.isServer) {
         if (Jackpot.find().count() == 0) {
             Jackpot.insert({_id: 'a', 'value': 0});
@@ -21,10 +23,14 @@ Meteor.startup(function () {
             return Jackpot.find({_id: 'a'})
         });
         Meteor.publish("allUserData", function () {
-            return Meteor.users.find({}, {fields: {'profile': 1, 'username': 1}});
+            return Meteor.users.find({}, {fields: {'balance': 1, 'profile': 1, 'username': 1}});
+        });
+        Meteor.publish("allTransactions", function () {
+            return bitcoinEvents.find({});
         });
         getPubnub(creds);
     }
+//   Client
     if (Meteor.isClient) {
         jackpot_subscription = Meteor.subscribe('jackpot_publish');
         var handle = query.observeChanges({
