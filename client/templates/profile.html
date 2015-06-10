@@ -1,6 +1,6 @@
 <template name="profile">
     <h1>Profile</h1>
-    <p id='balance'>Balance: {{currentUser.balance}}</p>
+    <p id='balance'>Balance: ฿ {{balance}}</p>
     {{> quickForm collection="Meteor.users" doc=currentUser fields='profile' id="profile" type="update"}}
     
     <p>Code to paste:</p>

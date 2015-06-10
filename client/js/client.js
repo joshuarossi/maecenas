@@ -20,6 +20,12 @@ Bootstrap3boilerplate.Navbar.right = function () {
 };
 Bootstrap3boilerplate.init();
 
+Template.profile.helpers({
+    'balance': function () {
+        return Meteor.user().balance.toFixed(8);
+    }
+});
+
 Template.carousel.rendered = function () {
     $('#carousel').slick({
         dots: false,
