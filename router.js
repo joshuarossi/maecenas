@@ -15,7 +15,9 @@ Router.route('/', {
 });
 
 Router.route('/about');
-
+Router.route('/bitfinex_price', function(){
+    this.render('bitfinex_price');
+});
 //Router.route('/transactions', { where: 'server' })
 //    .post(function () {
 //        console.log('someone called POST on /transactions\n');
