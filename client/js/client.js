@@ -54,6 +54,9 @@ Template.pageOne.helpers({
         if (jackpot_subscription.ready()) {
             return +Jackpot.findOne({_id: 'a'}).value.toFixed(8);
         }
+    },
+    'prize_value': function () {
+        return +(Jackpot.findOne({_id: 'a'}).value * bitfinex_price()).toFixed(2);
     }
 })
 ;
@@ -69,7 +72,7 @@ Template.donate_form.events({
 });
 
 Template.pageTwo.onRendered(function(){
-    $('#qrcode').qrcode( {
+    $('#qrcode').qrcode({
         text: "bitcoin:" + this.data.profile.internal_address + "?amount=.001&message=donation",
         render: 'canvas',
         ecLevel: 'H',

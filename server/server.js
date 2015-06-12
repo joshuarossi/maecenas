@@ -12,6 +12,3 @@ Accounts.onCreateUser(function(options, user) {
 	user.balance = 0.0;
   	return user;
 });
-bfx = new Bitfinex();
-bfx.connect();
-Meteor.setTimeout(bfx.subscribeLevelOne, 2000);
