@@ -22,7 +22,10 @@ Bootstrap3boilerplate.init();
 
 Template.profile.helpers({
     'balance': function () {
-        return Meteor.user().balance.toFixed(8);
+        return Meteor.user() && Meteor.user().balance.toFixed(8);
+    },
+    'balance_dollar_value': function (){
+        return Meteor.user() && (Meteor.user().balance * bitfinex_price()).toFixed(2);
     }
 });
 
