@@ -25,7 +25,9 @@ Template.profile.helpers({
         return Meteor.user() && Meteor.user().balance.toFixed(8);
     },
     'balance_dollar_value': function (){
-        return Meteor.user() && (Meteor.user().balance * bitfinex_price()).toFixed(2);
+        if (Meteor.user()){
+            return Meteor.user() && (Meteor.user().balance * bitfinex_price()).toFixed(2);
+        }
     }
 });
 

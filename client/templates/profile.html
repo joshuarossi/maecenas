@@ -5,12 +5,16 @@
     {{/if}}
     {{> quickForm collection="Meteor.users" doc=currentUser fields='profile' id="profile" type="update"}}
     
-    <p>Code to paste:</p>
+    <p>Paste this code into your website:</p>
     <code>
-        &lt;iframe src='http://maecen.us/plugin/{{currentUser.username}}'&gt;&lt;/iframe&gt;
+        &lt;iframe frameborder="0" seamless scrolling='no' height=200 width=200
+            src='http://www.maecen.us/plugin/{{currentUser.username}}'&gt;&lt;/iframe&gt;
     </code>
-
-    <p>Preview of the plugin</p>
+    <p>If you can't use an iframe, you can provide a link to your own plugin page (<i>less convenient, but users can still see the prize amounts on the new page</i>):</p>
+    <a href='http://www.maecen.us/plugin/{{currentUser.username}}'><b>http://www.maecen.us/plugin/{{currentUser.username}}</b></a>
+    <p>Or you can just provide them with your maecen.us bitcoin address (<i>worst case scenario, they won't be able to see any information about the prize</i>):</p>
+    <b>{{currentUser.profile.internal_address}}</b>
+    <p><b>Preview of the plugin:</b></p>
     <iframe frameborder="0" seamless scrolling='no' height=200 width=200
             src='http://www.maecen.us/plugin/{{currentUser.username}}'></iframe>
 </template>
